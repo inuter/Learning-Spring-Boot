@@ -4,8 +4,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class MyAspect {
     @Pointcut("execution(* tk.inuter.springboot.service.impl.UserServiceImpl.printUser(..))")
     public void pointCut() {}

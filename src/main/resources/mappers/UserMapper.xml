@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tk.inuter.springboot.mapper.UserMapper">
+    <select id="getUserById" resultType="tk.inuter.springboot.entity.User">
+        select id, user_name, gender, note from t_user where id = #{id}
+    </select>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user(user_name, gender, note) values(#{userName}, #{gender}, #{note})
+    </insert>
+</mapper>

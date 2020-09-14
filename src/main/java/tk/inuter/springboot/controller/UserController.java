@@ -1,9 +1,11 @@
 package tk.inuter.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tk.inuter.springboot.pojo.User;
+import tk.inuter.springboot.entity.User;
+import tk.inuter.springboot.enums.GenderEnum;
 import tk.inuter.springboot.service.UserService;
 
 @RestController
@@ -16,13 +18,18 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("print")
-    public User printUser(Long id, String userName, String notes) {
+    @GetMapping("print")
+    public User printUser(Long id) {
+        return userService.printUser(id);
+    }
+
+    @GetMapping("insert")
+    public Long insertUser(String userName, String gender ,String note) {
         User user = new User();
-        user.setId(id);
         user.setUserName(userName);
-        user.setNote(notes);
-        userService.printUser(user);
-        return user;
+        user.setGender(GenderEnum.getEnumByName(gender.toUpperCase()));
+        user.setNote(note);
+        userService.insertUser(user);
+        return user.getId();
     }
 }

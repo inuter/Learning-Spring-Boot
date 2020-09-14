@@ -1,7 +1,9 @@
 package tk.inuter.springboot.service;
 
-import tk.inuter.springboot.pojo.User;
+import tk.inuter.springboot.entity.User;
 
 public interface UserService {
-    public void printUser(User user);
+    public User printUser(Long id);
+
+    public int insertUser(User user);
 }

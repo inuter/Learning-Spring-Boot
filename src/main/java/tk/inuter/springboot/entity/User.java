@@ -1,8 +1,11 @@
-package tk.inuter.springboot.pojo;
+package tk.inuter.springboot.entity;
+
+import tk.inuter.springboot.enums.GenderEnum;
 
 public class User {
     private Long id;
     private String userName;
+    private GenderEnum gender;
     private String note;
 
     public Long getId() {
@@ -29,12 +32,21 @@ public class User {
         this.note = note;
     }
 
+    public GenderEnum getGender() {
+        return gender;
+    }
+
+    public void setGender(GenderEnum gender) {
+        this.gender = gender;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
                 ", note='" + note + '\'' +
+                ", gender=" + gender +
                 '}';
     }
 }
